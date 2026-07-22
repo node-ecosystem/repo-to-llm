@@ -15,8 +15,9 @@ export function generatePDF(filesData: FileData[]): Buffer {
   const maxLinesPerPage = Math.floor((PAGE_HEIGHT - MARGIN * 2) / LINE_HEIGHT)
 
   const allLines: string[] = []
+  // Use '' to add new lines between rows
   for (const file of filesData) {
-    allLines.push(`==== ${file.header}`, '')
+    allLines.push(`==== ${file.header}`)
     for (const rl of file.content.split('\n')) {
       const sanitized = sanitize(rl)
       if (sanitized.length === 0) {
@@ -26,7 +27,7 @@ export function generatePDF(filesData: FileData[]): Buffer {
       for (let i = 0; i < sanitized.length; i += maxCharsPerLine)
         allLines.push(sanitized.slice(i, i + maxCharsPerLine))
     }
-    allLines.push('', '')
+    allLines.push('')
   }
 
   if (allLines.length === 0) allLines.push('(no content found)')
