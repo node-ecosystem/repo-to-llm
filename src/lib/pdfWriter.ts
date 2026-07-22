@@ -51,8 +51,8 @@ function sanitize(line: string): string {
 function escapePdfText(str: string): string {
   return str
     .replaceAll('\\', '\\\\')
-    .replaceAll('(', '\(')
-    .replaceAll(')', '\)')
+    .replaceAll('(', String.raw`\(`)
+    .replaceAll(')', String.raw`\)`)
 }
 
 function buildPdfBuffer(pages: string[][]): Buffer {
