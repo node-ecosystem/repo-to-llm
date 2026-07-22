@@ -51,7 +51,7 @@ function sanitize(line: string): string {
 
 function escapePdfText(str: string): string {
   return str
-    .replaceAll('\\', '\\\\')
+    .replaceAll('\\', String.raw`\\`)
     .replaceAll('(', String.raw`\(`)
     .replaceAll(')', String.raw`\)`)
 }
