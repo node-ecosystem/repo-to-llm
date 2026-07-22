@@ -16,7 +16,7 @@ export function generatePDF(filesData: FileData[]): Buffer {
 
   const allLines: string[] = []
   for (const file of filesData) {
-    allLines.push(`→ ${file.header}`, '')
+    allLines.push(`==== ${file.header}`, '')
     for (const rl of file.content.split('\n')) {
       const sanitized = sanitize(rl)
       if (sanitized.length === 0) {
