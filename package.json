@@ -1,0 +1,43 @@
+{
+  "name": "repo-to-llm",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/node-ecosystem/repo-to-llm.git"
+  },
+  "homepage": "https://github.com/node-ecosystem/repo-to-llm#readme",
+  "bugs": {
+    "url": "https://github.com/node-ecosystem/repo-to-llm/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "dev": "yarn node src/server.ts",
+    "lint": "eslint src/**/*.ts",
+    "build": "tsdown",
+    "prepublishOnly": "yarn build",
+    "od": "yarn outdated"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.1",
+    "@yarnpkg/sdks": "^3.3.0",
+    "eslint": "^10.7.0",
+    "eslint-plugin-unicorn": "^72.0.0",
+    "tsdown": "^0.22.13",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.65.0"
+  },
+  "engines": {
+    "node": ">=20.15.0 || 22.2.0"
+  },
+  "packageManager": "yarn@4.17.1"
+}
